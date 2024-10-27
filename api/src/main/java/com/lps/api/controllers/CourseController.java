@@ -17,6 +17,7 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
+    // Código correto e de fácil entendimento seguindo os padrões
     @GetMapping("/all")
     public ResponseEntity<List<Course>> getAll() {
         List<Course> courses = courseService.findAll();

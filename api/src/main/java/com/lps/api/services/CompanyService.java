@@ -19,6 +19,8 @@ public class CompanyService {
     @Autowired
     private CompanyRepository companyRepository;
 
+    // É preferível injetar o PasswordEncoder através do construtor para facilitar a testabilidade da classe e evitar dependências fortes.
+    // Outra opção é usar PasswordEncoder como um bean configurado na aplicação para maior flexibilidade.
     @Autowired
     private final PasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -41,6 +43,7 @@ public class CompanyService {
         companyRepository.deleteById(id);
     }
 
+    // Use Optional.orElseThrow() para evitar um bloco condicional if/else e tornar o código mais direto.
     public Company updateCompany(Long id, Company company) {
         Optional<Company> existingCompany = companyRepository.findById(id);
         if (existingCompany.isPresent()) {

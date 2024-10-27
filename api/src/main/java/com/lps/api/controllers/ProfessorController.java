@@ -20,6 +20,7 @@ public class ProfessorController {
         return ResponseEntity.ok(professorService.findAll());
     }
 
+    // Pode-se substituir essa lógica para um functional style utilizando o map do java para verificação do is present  professor.map(value -> ResponseEntity.ok().body(value)).orElseGet(() -> ResponseEntity.notFound().build());
     @GetMapping("/{id}")
     public ResponseEntity<Professor> getProfessorById(@PathVariable Long id) {
         Optional<Professor> professor = professorService.findById(id);

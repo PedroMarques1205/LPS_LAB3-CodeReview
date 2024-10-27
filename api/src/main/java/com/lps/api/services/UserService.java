@@ -25,6 +25,8 @@ public class UserService {
     @Autowired
     private PasswordTokenRepository passwordTokenRepository;
 
+    // É preferível injetar o PasswordEncoder através do construtor para facilitar a testabilidade da classe e evitar dependências fortes.
+    // Outra opção é usar PasswordEncoder como um bean configurado na aplicação para maior flexibilidade.
     @Autowired
     private final PasswordEncoder encoder = new BCryptPasswordEncoder();
 

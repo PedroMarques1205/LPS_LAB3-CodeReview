@@ -20,6 +20,7 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
+    //Adicionar verificação de existência do curso retornado, sugestão: .orElse()
     public Course findById(Long id) {
         return courseRepository.findById(id).get();
     }

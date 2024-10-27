@@ -21,6 +21,7 @@ public class CompanyController {
         return ResponseEntity.ok().body(companies);
     }
 
+    //Pode-se substituir o bloco ifElse para um ternário return (company != null) ? ResponseEntity.ok(company) : ResponseEntity.notFound().build(); tornando o código menos verboso e mais compreensível
     @GetMapping("/{id}")
     public ResponseEntity<Company> getCompanyById(@PathVariable Long id) {
         Company company = companyService.findById(id);
@@ -36,6 +37,8 @@ public class CompanyController {
         return ResponseEntity.ok().body(companyService.save(company));
     }
 
+
+    // Para evitar blocos de ifElse pode ser substituito por um ternário return (updatedCompany != null) ? ResponseEntity.ok(updatedCompany) : ResponseEntity.notFound().build(); tornando o código menos verboso e mais compreensível
     @PutMapping("/{id}")
     public ResponseEntity<Company> updateCompany(@PathVariable Long id, @RequestBody Company companyDetails) {
         Company updatedCompany = companyService.updateCompany(id, companyDetails);

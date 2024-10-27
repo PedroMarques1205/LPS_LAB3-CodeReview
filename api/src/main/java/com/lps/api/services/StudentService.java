@@ -36,6 +36,7 @@ public class StudentService {
         return studentRepository.findByCourse_Name(course);
     }
 
+    // Adicionar verificação de isPresent para verificar se o objeto será de fato retornado
     public Student findById(Long id) {
         return studentRepository.findById(id).get();
     }

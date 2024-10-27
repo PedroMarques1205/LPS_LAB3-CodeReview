@@ -48,6 +48,8 @@ public class AuthController {
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.email(),
                         loginRequest.password()));
+
+        // Melhorar a verificação de tipo com uma constante ou enum para os tipos de usuário (evita strings dispersas)
         String userType = (user instanceof NaturalPerson) ? "isStudentOrTeacher" : "isEnterprise";
         String jwt = tokenProvider.generateToken(authentication);
         return ResponseEntity.ok(new LoginResponse(jwt, userType));

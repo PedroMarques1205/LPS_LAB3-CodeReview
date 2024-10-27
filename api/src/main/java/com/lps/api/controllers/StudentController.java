@@ -24,6 +24,25 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    /*
+            A função de converter Student para student DTO é uma parte de código que
+        se repete diversas vezes ela, pode ser substituíta criando uma função dentro do arquivo de
+        StudentService da seguinte forma:
+
+         private StudentResponseDTO convertToDTO(Student student) {
+            return new StudentResponseDTO(
+                student.getName(),
+                student.getEmail(),
+                student.getCpf(),
+                student.getBalance(),
+                student.getRg(),
+                student.getCourse(),
+                student.getAddress()
+            );
+        }
+
+        Evitando assim a repetição desnecessária de código e de boas práticas      */
+
     @GetMapping
     public ResponseEntity<List<StudentResponseDTO>> findAll() {
         List<Student> savedStudent = studentService.findAll();

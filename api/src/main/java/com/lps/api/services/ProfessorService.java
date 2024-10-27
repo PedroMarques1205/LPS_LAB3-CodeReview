@@ -33,6 +33,8 @@ public class ProfessorService {
         professorRepository.deleteById(id);
     }
 
+    // Usar Optional.orElseThrow() simplifica a lógica e evita o bloco de if/else.
+    // Sugiro passar o ID na classe professor na hora da requisição, ao invés de passar outro parâmetro long separado
     public Professor updateProfessor(Long id, Professor professor) {
         Optional<Professor> existingProfessor = professorRepository.findById(id);
         if (existingProfessor.isPresent()) {
